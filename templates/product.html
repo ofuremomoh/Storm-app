@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+        <main class="main">
+        
+
+            <div class="page-content">
+                <div class="container">
+                    <div class="product-details-top">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="product-gallery product-gallery-vertical">
+                                    <div class="row">
+                                        <figure class="product-main-image">
+                                            <img id="product-zoom" src="data:;base64,{{product.rendered_data}}"  data-zoom-image="static/images/products/single/1-big.jpg" alt="product image">
+
+                                            <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                                <i class="icon-arrows"></i>
+                                            </a>
+                                        </figure><!-- End .product-main-image -->
+
+                                    </div><!-- End .row -->
+                                </div><!-- End .product-gallery -->
+                            </div><!-- End .col-md-6 -->
+
+                            <div class="col-md-6">
+                                <div class="product-details">
+                                    <h1 class="product-title">{{product.name}}</h1><!-- End .product-title -->
+
+                              
+
+                                    <div class="product-price">
+                                        {{product.price}}
+                                    </div><!-- End .product-price -->
+
+                                    <div class="product-content">
+                                        <p> {{product.description}} </p>
+                                    </div><!-- End .product-content -->
+
+                                    <form action="{{ url_for('add_to_cart')}}" method="POST">
+                                    <div class="details-filter-row details-row-size">
+                                        <label for="qty">Qty:</label>
+                                        <div class="product-details-quantity">
+                                            {{ form.csrf_token }}
+                                           
+                                            {{ form.quantity (class='form-control', type='number')}}
+                                            {{ form.id(value=product.id)}}
+
+                                        </div><!-- End .product-details-quantity -->
+                                    </div><!-- End .details-filter-row -->
+                              
+
+                                    
+                                        <button  type="submit" class="btn btn-secondary" style="margin-bottom: 10px;">Order</button>
+
+                                   
+                                    </form>
+
+                                
+                                </div><!-- End .product-details -->
+                            </div><!-- End .col-md-6 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .product-details-top -->
+
+      
+
+                
+        </main><!-- End .main -->
+
+
+        {% endblock %}
+        

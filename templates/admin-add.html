@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                   
+                        <form method="POST" action="{{ url_for('add')}}" enctype="multipart/form-data">
+                            <div class="mb-3">
+                              {{form.csrf_token}}
+                              <label for="exampleInputEmail1" class="form-label">Product Name</label>
+        
+                              {{ form.name(class= 'form-control')}}
+    
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Price</label>
+                              {{ form.price(class= 'form-control')}}
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-check-label" for="exampleCheck1">Stock</label>
+                              {{ form.name(class= 'form-control')}}
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-check-label" for="exampleCheck1">Description</label>
+                                {{ form.description(class= 'form-control')}}
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-check-label" for="exampleCheck1">Image</label>
+                                {{ form.image(class= 'form-control')}}
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-check-label" for="exampleCheck1">Category</label>
+                                {{ form.category(class= 'form-control')}}
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-check-label" for="exampleCheck1">Item/Part Number/</label>
+                                {{ form.item_number(class= 'form-control')}}
+                              </div>
+                            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;" >Submit</button>
+                          </form>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+
+        {% endblock %}
