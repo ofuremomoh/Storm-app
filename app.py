@@ -51,11 +51,10 @@ otp=randint(000000,999999)
 #app.config['SQLALCHEMY_DATABASE_URI'] = basedir
 
 
-#engine = create_engine("postgresql://postgres:CoreSocial94!@localhost:5433/fortune")
-#connection = engine.connect()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:CoreSocial94!@localhost:5433/rewind'
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://oeksiumyhnqjhn:ef51f874ac6f078c83ed87634438d9dd79dd289bf9bc71a19451579577942b4a@ec2-52-86-115-245.compute-1.amazonaws.com:5432/d1f668t86td4hi'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:CoreSocial94!@localhost:5433/rewind'
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://baiefmfbvcwctg:560383efc8de85f2216aac8bf95968e34ccd4f75c974f90cbac1e75f70e3b35f@ec2-52-4-104-184.compute-1.amazonaws.com:5432/degg0jb9ndgc1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 app.config['MAIL_SERVER']='smtp.gmail.com'
