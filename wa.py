@@ -109,6 +109,7 @@ def admin_required(f):
 
 
 class User( UserMixin, db.Model):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
@@ -160,6 +161,7 @@ class Permission:
     ADMIN = 2
 
 class Role(db.Model):
+    __tablename__ = 'role'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     default = db.Column(db.Boolean, default=False, index=True)
@@ -205,14 +207,11 @@ class Role(db.Model):
             role.default = (role.name == default_role)
             db.session.add(role)
         db.session.commit()
-  
 
 
-    
-
+        
 class Product(db.Model):
     __tablename__ = 'product'
-    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
     price = db.Column(db.Integer) #in cents
@@ -224,12 +223,11 @@ class Product(db.Model):
     rendered_data = db.Column(db.Text, nullable=True)
     orders = db.relationship('Order_Item', backref= 'product', lazy=True)
 
-    
-     
+
+
 class Order(db.Model):
-    
      __tablename__ = 'order'
-     
+
     id = db.Column(db.Integer, primary_key=True)
     reference = db.Column(db.String(5), unique=True)
     first_name = db.Column(db.String(20))
